@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galera Dashboard</title>
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
+
+        body{
+            background-color:  #ADCF9F;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .form{
+            width: 45%;
+            /* margin: 100px auto 200px; */
+            border-radius: 5px;
+            background-color: #FCF8E8;
+            padding: 20px;
+            box-shadow:  0 20px 30px 10px rgba(0, 0, 0, 0.19);
+
+        }
+        input{
+            width: 94%;
+            padding: 12px 20px;
+            margin: 5px 0 16px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;   
+        }
+
+        button{
+            width: 100%;
+            background-color: #3c8b97;
+            color: white;
+            padding: 14px 20px;
+            border-radius: 4px;
+            border: none;
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: bolder;
+        }
+
+        button:hover {
+            background-color: rgb(45, 98, 106);
+        }
+
+        .divs{
+            float: left;
+            margin-top: 100px;
+        }
+
+        .left{
+            width: 50%;
+            text-align: center;
+            margin-top: 70px;
+            /* margin: auto; */
+        }
+
+        .inner{
+            margin: 0 150px;
+        }
+        
+      
+
+
+        ::placeholder {
+            color: grey;
+            opacity: 0.6; /* Firefox */
+        }
+        /* .header{
+            float: left;
+            margin-top: 0;
+        }
+
+        .logo{
+            width: 30%;
+            padding-left: 80px;
+        }
+
+        .heading{
+            width: 65%;
+            
+        } */
+
+
+
+
+
+
+        /* #surround{
+            margin: 100px auto ;
+            display: none;
+        }
+
+        table, th, td {
+             border: 0;
+        }
+
+        table {
+            width: 60%;
+            text-align: center;
+            margin: auto;
+        }
+
+        th {
+            height: 40px;
+            /* background-color: #04AA6D; */
+            /* color: black;
+            margin: 0;
+        }
+
+        /* tr:nth-child(even) { */
+            /* background-color: #f2f2f2; */
+        /* } */
+
+        /* td {
+            height: 32px;
+            vertical-align: center;
+            margin: 0;
+        } */ 
+
+
+       
+
+
+
+
+        
+    </style>
+</head>
+<body>
+    <!-- <header>
+        <div class="header logo">
+            <img src="https://logos.fandom.com/wiki/PhonePe" height="48px" width="48px">
+        </div>
+
+        <div class="header heading">
+            <h1 style="text-align: center; margin: 50px auto; color: #072315; font-size: 40px; font-weight: 400;">Galera Cluster Dashboard</h2>
+        </div>
+    </header> -->
+
+    <h1 style="text-align: center; margin: 50px auto; color: #072315; font-size: 40px; font-weight: 400;">Galera Cluster Dashboard</h1>
+
+    
+    <div class="container">
+        <div class="divs left">
+            <div class="inner" style="color: #072315; font-size: 30px;"><h1 style="font-weight: 800;">Your one stop destination for monitoring the Galera clusters.</h1></div>
+        </div>
+    
+        
+        <div class="divs form">
+                <form action="/" method="post">
+                    <label for="nodename" style="color: #072315;"><strong>Node-name</strong></label>
+                    <input type="text" name="node" id="nodename" placeholder="example stg-praveen001.phonepe.nb6" required>
+                    <label for="cluster" style="color: #072315;"><strong>Cluster-name</strong></label>
+                    <input type="text" name="cluster_name" id="cluster" placeholder="Logical name of your cluster" required>
+                    
+                    <button type="submit">Onboard the cluster</button>
+                </form>
+                <p style="text-align: center; color: #072315;"> Or</p>
+                <a href="/foo" id="show">
+                    <button class="button2">Show existing clusters</button>
+                </a>
+    
+        </div>
+    
+    </div>    
+ 
+
+   <!-- <button type="submit" id="show">Show existing clusters</BUTTON> -->
+
+   
+
+   <!-- <div id="surround">
+
+    <table>
+      <tr>
+          <th>Cluster-name</th>
+          <th>Nodes in Cluster</th>
+          <th>Slaves of Cluster</th>
+          <th>replication lag</th>
+      </tr>
+      <tr>
+          <td></td>
+          <td><%= node1   %></td>
+          <td><%= slaves %></td>
+          <td><%= lag %></td>
+      </tr>
+      <tr>
+          <td><%= cluster  %></td>
+          <td><%= node2   %></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td><%= node3   %></td>
+          <td></td>
+          <td></td>
+      </tr>
+    </table>
+
+  </div>
+ -->
+
+
+
+
+    <!-- <SCRIPT>
+        document.getElementById("show").onclick = function() {
+            // var x =  document.getElementById("surround").style.display
+            // if ( document.getElementById("surround").style.display === "none"){
+                document.getElementById("surround").style.display = "block"
+                // document.getElementById("show").innerHTML = "Hide existing cluster"
+            // }
+            // else{
+            //     document.getElementById("surround").style.display = "none"
+            //     document.getElementById("show").innerHTML = "Show  clusters"
+            // }
+            // document.getElementById("surround").style.display = "block";
+            // document.getElementById("show").innerHTML = "Hide existing cluster"
+            }
+    </SCRIPT> -->
+
+
+
+
+
+
+</body>
+</html>

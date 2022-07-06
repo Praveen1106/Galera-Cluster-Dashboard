@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galera overview</title>
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;800&display=swap');
+
+
+        body{
+            background-color:  #ADCF9F;
+            font-family: 'Nunito', sans-serif;
+        }
+        .surround{
+            margin: 100px auto ;
+        }
+
+        /* table, th, td {
+             border: 0;
+        } */
+
+        table {
+            width: 65%;
+            /* text-align: center; */
+            margin: 100px auto auto auto;
+            display: table;
+            text-align: center;
+            box-shadow:  0 20px 30px 6px rgba(0, 0, 0, 0.19);
+            /* box-shadow: 1px 1px 3px 2px #e2c6b3; */
+
+            /* border-spacing: 3px 0; */
+            /* border-radius: 10px; */
+        }
+
+        /* table:hover{
+            width: 70%;
+            /* text-align: center; */
+            /* margin: 100px auto auto auto;
+            display: table;
+            text-align: center;
+            box-shadow:  0 20px 30px 6px rgba(0, 0, 0, 0.19);
+            /* box-shadow: 1px 1px 3px 2px #e2c6b3; */
+
+            /* border-spacing: 3px 0;
+            border-radius: 10px; */ 
+        /* } */ 
+
+        th {
+            /* height: 40px; */
+            /* background-color: #04AA6D; */
+            /* color: whitesmoke; */
+            /* margin: 0; */
+            text-align: center;
+            vertical-align: center;
+
+        }
+
+        td:nth-child(even) {
+            background-color: #FCF8E8;
+        }
+
+        td:nth-child(odd) {
+            background-color: #FFDCAE;
+        }
+
+        td {
+            height: 40px;
+            margin-right: 2.5px;
+            color: #072315
+        }
+        
+
+
+        table tr {
+            display: table-cell;
+
+        }
+        table tr td {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 200;
+        }
+
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align: center; margin: 50px auto; color: #072315; font-size: 40px; font-weight: 400; ">Existing Clusters</h2>
+
+
+    <div class="surround">
+
+        <% dataToSend.forEach(function(clusterVals){ %>
+            <% var slaveNum = clusterVals.slaveNum  %>
+            <% var nodeLag =  3- clusterVals.hostNum %>
+
+            <% if( slaveNum> 3) { %>
+                <% var difference =  slaveNum-3 %>
+
+            
+
+                <table>
+                    <tr>
+                        <td><strong>Cluster-name</strong></td>
+                        <td></td>
+                        <td><%= clusterVals.cluster  %></td>
+                        <td></td>
+                        <% for(var i=0; i<difference; i++){ %>
+                            <td></td>
+                        <% } %>
+                    </tr>
+
+
+
+                    <tr>
+                        <td><strong>Nodes in Cluster</strong></td>
+                        <% clusterVals.hostnames.forEach(function(node){ %>
+                            <td><%= node %></td>
+                        <% })  %>
+                        
+                        <% for(var i=0; i<nodeLag; i++){ %>
+                            <td></td>
+                        <% } %>
+
+
+
+
+                        <% for(var i=0; i<difference; i++){ %>
+                            <td></td>
+                        <% } %>
+                    </tr>
+
+
+
+                    <tr>
+                        <td><strong>Slaves of Cluster</strong></td>
+                        <% clusterVals.slaves.forEach(function(slave){  %>
+                            <td><%= slave %></td>
+                        <% })  %>
+
+            
+                    </tr>
+
+                    <tr>
+                        <td><strong>Replication Lag</strong></td>
+                        <% clusterVals.lags.forEach(function(lag){  %>
+                            <td><%= lag %></td>
+                        <% })  %>
+
+                    </tr>
+
+
+                </table>
+
+
+
+
+            <%} else { %>
+
+                <% var difference = 3-slaveNum %>
+
+                <table>
+                    <tr>
+                        <td><strong>Cluster-name</strong></td>
+                        <td></td>
+                        <td><%= clusterVals.cluster  %></td>
+                        <td></td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td><strong>Nodes in Cluster</strong></td>
+                        <% clusterVals.hostnames.forEach(function(node){ %>
+                            <td><%= node %></td>
+                        <% })  %>
+
+                        <% for(var i=0; i<nodeLag; i++){ %>
+                            <td></td>
+                        <% } %>
+
+
+                    </tr>
+
+
+
+                    <tr>
+                        <td><strong>Slaves of Cluster</strong></td>
+                        <% clusterVals.slaves.forEach(function(slave){  %>
+                            <td><%= slave %></td>
+                        <% })  %>
+
+                        
+
+                        <% for(var i=0; i<difference; i++){ %>
+                            <td></td>
+                        <% } %>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Replication Lag</strong></td>
+                        <% clusterVals.lags.forEach(function(lag){  %>
+                            <td><%= lag %></td>
+                        <% })  %>
+                        
+
+
+                        <% for(var i=0; i<difference; i++){ %>
+                            <td></td>
+                        <% } %>
+                    </tr>
+
+
+                </table>
+            <% } %>
+
+
+
+
+        <% }) %>
+
+
+
+
+
+
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+<!-- https://stackoverflow.com/questions/16071864/how-to-create-tables-from-column-data-instead-of-row-data-in-html -->     
+
+<!-- used above link to manage the tables -->
+
+
+
+
+
+
